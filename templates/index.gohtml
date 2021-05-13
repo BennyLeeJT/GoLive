@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>WELCOME PAGE</title>
+</head>
+
+<body>
+    <h1>Login and Logout Page</h1>
+    {{if .First}} Welcome User : {{.Username}}<br> Your first name is : {{.First}}<br> Your last name is : {{.Last}}<br>
+    <h2><a href="/userDetailsInfo">User Details Info</a></h2>
+    <h2><a href="/carparkInfo">Carpark Info</a></h2>
+    <h2><a href="/logout">Log Out</a></h2>
+    {{else}}
+    <h2>You are currently either not logged in or need to sign up for an account</h2>
+    <h2><a href="/signup">Sign Up here</a></h2>
+    <h2><a href="/login">Log in here</a></h2>
+    {{end}}
+
+
+</body>
+
+</html>
