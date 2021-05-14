@@ -159,7 +159,7 @@ func login(res http.ResponseWriter, req *http.Request) {
 			Name:  "myCookie",
 			Value: id.String(),
 		}
-		fmt.Printf("myCookie when login post method : %v", myCookie)
+		fmt.Printf("myCookie when login post method : %v\n", myCookie)
 		http.SetCookie(res, myCookie)
 		mapSessions[myCookie.Value] = username
 		http.Redirect(res, req, "/", http.StatusSeeOther)
@@ -272,12 +272,21 @@ func getAllCarParkInfo(res http.ResponseWriter, req *http.Request) CarparkJSONSt
 	}
 
 	carparkSlice := carparkFullData.Items[0].CarparkData
-	// fmt.Printf("carparkSlice : %v\n\n", carparkSlice)
+	fmt.Printf("carparkSlice : %v\n\n", carparkSlice)
 	// fmt.Printf("%T\n\n", carparkSlice) // slice of structs
 
 	for i := range carparkSlice {
 		fmt.Printf("%+v\n", carparkSlice[i])
 	}
+
+	// attempting to process JSON data into a map
+	// var carparkMAP []map[reflect.Value]interface{}
+
+	// for i := range carparkSlice {
+	// 	// carparkMAP[i] = map[string]interface{}{"carpark_number": carparkSlice[i]}
+	// 	carparkMAP[i] = map[reflect.Value]interface{}{getStructFieldName(carparkSlice[i].CarparkNumber): carparkSlice[i]}
+	// 	// carparkJSONstruct.Item[0].carparkdata[0].carparknumber
+	// }
 
 	return carparkFullData
 
